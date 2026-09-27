@@ -1,42 +1,121 @@
-:root {
-  --ink: #0d2b33;
-  --ink-2: #16414d;
-  --paper: #ffffff;
-  --mist: #f1f4f3;
-  --line: #dbe2e0;
-  --muted: #55696e;
-  --brass: #b98d4a;
-  --radius: 20px;
+/* ========================================
+   THE CUBIK SPACES — INTRO LOADER
+======================================== */
+
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #071f25;
+  color: #ffffff;
+
+  overflow: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.intro-content {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-html {
-  scroll-behavior: smooth;
+.intro-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
+  font-size: clamp(30px, 5vw, 72px);
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+  line-height: 1;
+
+  perspective: 1000px;
 }
 
-body {
-  margin: 0;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  color: var(--ink);
-  background: var(--paper);
+.intro-letter {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform-origin: center bottom;
+
+  will-change: transform, opacity;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.intro-space {
+  width: 0.35em;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.intro-line {
+  width: min(420px, 60vw);
+  height: 1px;
+
+  margin-top: 30px;
+
+  background: #c9a565;
+
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
 }
 
-.container {
-  width: min(1200px, 100% - 40px);
-  margin-inline: auto;
+.intro-subtitle {
+  margin: 18px 0 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.35em;
+
+  text-align: center;
+
+  opacity: 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .intro-title {
+    font-size: clamp(24px, 7vw, 38px);
+    letter-spacing: 0.04em;
+  }
+
+  .intro-space {
+    width: 0.25em;
+  }
+
+  .intro-line {
+    width: 65%;
+    margin-top: 22px;
+  }
+
+  .intro-subtitle {
+    font-size: 7px;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-letter,
+  .intro-line,
+  .intro-subtitle {
+    opacity: 1;
+    transform: none;
+  }
 }

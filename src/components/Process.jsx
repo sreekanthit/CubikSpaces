@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { animate, stagger } from "animejs";
+import { createTimeline, stagger } from "animejs";
+import "./Process.css";
 
 const STEPS = [
   {
@@ -37,80 +38,132 @@ export default function Process() {
 
   useEffect(() => {
     const section = sectionRef.current;
+
     if (!section) return;
+
+    const title = section.querySelector(".process-title");
+    const line = section.querySelector(".process-line");
+    const steps = section.querySelectorAll(".process-step");
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;
 
-        animate(section.querySelector(".section__title"), {
-          opacity: [0, 1],
-          translateY: [40, 0],
-          duration: 900,
-          ease: "outExpo",
+        const timeline = createTimeline({
+          defaults: {
+            ease: "outExpo",
+          },
         });
 
-        animate(section.querySelectorAll(".step"), {
+        // Section title
+        timeline.add(title, {
           opacity: [0, 1],
-          translateY: [60, 0],
-          scale: [0.97, 1],
-          delay: stagger(140, {
-            start: 200,
-          }),
-          duration: 950,
-          ease: "outExpo",
+          translateY: [45, 0],
+          duration: 800,
         });
+
+        // Gold line
+        timeline.add(
+          line,
+          {
+            scaleX: [0, 1],
+            opacity: [0, 1],
+            duration: 900,
+          },
+          250
+        );
+
+        // Steps one-by-one
+        timeline.add(
+          steps,
+          {
+            opacity: [0, 1],
+
+            translateY: {
+              from: 55,
+              to: 0,
+              duration: 900,
+            },
+
+            scale: {
+              from: 0.97,
+              to: 1,
+              duration: 900,
+            },
+
+            delay: stagger(130),
+
+            duration: 900,
+          },
+          400
+        );
 
         observer.unobserve(section);
       },
       {
-        threshold: 0.18,
+        threshold: 0.2,
       }
     );
 
     observer.observe(section);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <section
-      ref={sectionRef}
       id="process"
-      className="section"
+      ref={sectionRef}
+      className="process-section"
     >
       <div className="container">
 
-        <h2 className="section__title anime-hidden">
-          A clear path from idea to home.
-        </h2>
+        <div className="process-heading">
+          <span className="process-eyebrow">
+            OUR PROCESS
+          </span>
 
-        <div className="steps">
+          <h2 className="process-title">
+            A clear path from
+            <span> idea to home.</span>
+          </h2>
+
+          <span className="process-line" />
+        </div>
+
+        <div className="process-steps">
+
           {STEPS.map((step) => (
             <article
-              className="step anime-hidden"
+              className="process-step"
               key={step.number}
             >
-              <span className="step__num">
-                {step.number}
-              </span>
+              <div className="process-step-top">
+                <span className="process-number">
+                  {step.number}
+                </span>
 
-              <p className="step__label">
-                {step.label}
-              </p>
+                <span className="process-label">
+                  {step.label}
+                </span>
+              </div>
 
-              <h3>{step.title}</h3>
+              <div className="process-step-content">
+                <h3>{step.title}</h3>
 
-              <p>{step.description}</p>
+                <p>
+                  {step.description}
+                </p>
+              </div>
 
-              <a
-                className="link"
-                href="/process"
-              >
-                Learn about our process
-              </a>
+              <div className="process-arrow">
+                ↗
+              </div>
             </article>
           ))}
+
         </div>
 
       </div>

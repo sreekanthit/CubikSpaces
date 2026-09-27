@@ -10,15 +10,18 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/vite": "^4.3.3",
     "animejs": "^4.5.0",
     "axios": "^1.20.0",
     "cors": "^2.8.6",
     "dotenv": "^18.0.3",
     "express": "^5.2.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@types/node": "^26.6.3",
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.0"
   },
