@@ -1,0 +1,2268 @@
+/* =========================================================
+   THE CUBIK SPACES — PROFESSIONAL HERO
+========================================================= */
+
+.cubik-hero {
+  position: relative;
+  height: 190vh;
+  min-height: 820px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #071f25;
+  color: #fff;
+}
+
+.cubik-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 63% 43%, rgba(185, 141, 74, .18), transparent 24%),
+    radial-gradient(circle at 12% 80%, rgba(29, 79, 89, .72), transparent 36%),
+    linear-gradient(125deg, #04161b 0%, #0a2b33 48%, #06171c 100%);
+}
+
+.cubik-hero__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 20, 25, .18), transparent 45%, rgba(4, 20, 25, .16)),
+    linear-gradient(180deg, rgba(0,0,0,.12), transparent 30%, rgba(0,0,0,.28));
+}
+
+.cubik-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(85px);
+  z-index: -2;
+}
+
+.cubik-hero__glow--one {
+  width: 360px;
+  height: 360px;
+  top: 20%;
+  right: 22%;
+  background: rgba(185, 141, 74, .10);
+}
+
+.cubik-hero__glow--two {
+  width: 330px;
+  height: 330px;
+  left: -130px;
+  bottom: 8%;
+  background: rgba(22, 65, 77, .55);
+}
+
+/* Navigation */
+
+.cubik-hero__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 82px;
+  padding: 0 clamp(22px, 5vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.cubik-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cubik-logo__main {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.cubik-logo__accent {
+  color: #c9a45c;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .20em;
+}
+
+.cubik-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.7vw, 34px);
+}
+
+.cubik-nav a {
+  position: relative;
+  color: rgba(255,255,255,.76);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .25s ease;
+}
+
+.cubik-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: #c9a45c;
+  transition: right .25s ease;
+}
+
+.cubik-nav a:hover,
+.cubik-nav a.is-active {
+  color: #fff;
+}
+
+.cubik-nav a:hover::after,
+.cubik-nav a.is-active::after {
+  right: 0;
+}
+
+.cubik-consult {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 7px 18px;
+  border: 1px solid rgba(201,164,92,.72);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.cubik-consult b {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #c9a45c;
+  color: #10272d;
+  font-size: 16px;
+}
+
+.cubik-consult:hover {
+  background: #c9a45c;
+  color: #10272d;
+  transform: translateY(-2px);
+}
+
+.cubik-menu,
+.cubik-mobile-nav {
+  display: none;
+}
+
+/* Main */
+
+.cubik-hero__content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 720px;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 100px clamp(22px, 5vw, 80px) 150px;
+  display: grid;
+  grid-template-columns: minmax(290px, .82fr) minmax(430px, 1.55fr) minmax(250px, .65fr);
+  align-items: center;
+  gap: clamp(10px, 2vw, 30px);
+  z-index: 10;
+}
+
+.cubik-hero__copy {
+  position: relative;
+  z-index: 20;
+  max-width: 540px;
+}
+
+.cubik-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 24px;
+  color: #c9a45c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .24em;
+}
+
+.cubik-eyebrow span {
+  width: 26px;
+  height: 1px;
+  background: #c9a45c;
+}
+
+.cubik-hero__copy h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 6vw, 92px);
+  line-height: .93;
+  letter-spacing: -.055em;
+  font-weight: 400;
+}
+
+.cubik-hero__copy h1 em {
+  color: #c9a45c;
+  font-style: normal;
+}
+
+.cubik-description {
+  max-width: 450px;
+  margin: 28px 0 0;
+  color: rgba(255,255,255,.68);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.cubik-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 34px;
+}
+
+.cubik-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 7px 8px 7px 21px;
+  border-radius: 999px;
+  background: #c9a45c;
+  color: #10272d;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cubik-primary b {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #10272d;
+  color: #fff;
+  font-size: 18px;
+}
+
+.cubik-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(0,0,0,.25);
+}
+
+.cubik-story {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.86);
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.cubik-story small {
+  display: block;
+  margin-bottom: 3px;
+  color: #c9a45c;
+  font-size: 8px;
+  letter-spacing: .15em;
+}
+
+.cubik-play {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 50%;
+  color: #c9a45c;
+  transition: .25s ease;
+}
+
+.cubik-story:hover .cubik-play {
+  background: #c9a45c;
+  color: #10272d;
+  transform: scale(1.07);
+}
+
+.cubik-trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+  color: rgba(255,255,255,.38);
+  font-size: 8px;
+  letter-spacing: .18em;
+}
+
+.cubik-trust__line {
+  width: 35px;
+  height: 1px;
+  background: rgba(201,164,92,.65);
+}
+
+/* House */
+
+.cubik-house-area {
+  position: relative;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  z-index: 15;
+}
+
+.cubik-house {
+  position: relative;
+  width: min(700px, 47vw);
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform .08s linear;
+}
+
+.cubik-house img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  filter: drop-shadow(0 38px 42px rgba(0,0,0,.40));
+  animation: cubikHouseFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes cubikHouseFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.cubik-house__shadow {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: 8%;
+  height: 75px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.40);
+  filter: blur(32px);
+  z-index: -1;
+}
+
+.cubik-orbit {
+  position: absolute;
+  width: min(620px, 42vw);
+  height: 360px;
+  border: 1px solid rgba(201,164,92,.24);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.cubik-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 28px 70px;
+  border: 1px solid rgba(255,255,255,.045);
+  border-radius: 50%;
+}
+
+.cubik-orbit span {
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c9a45c;
+  box-shadow: 0 0 22px rgba(201,164,92,.85);
+}
+
+/* Services */
+
+.cubik-services {
+  position: relative;
+  z-index: 20;
+}
+
+.cubik-services__label {
+  margin: 0 0 20px;
+  color: rgba(255,255,255,.38);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .20em;
+}
+
+.cubik-service {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 17px 0;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.cubik-service > span {
+  color: #c9a45c;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cubik-service strong {
+  display: block;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cubik-service small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255,255,255,.45);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.cubik-services__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #c9a45c;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.cubik-services__link span {
+  transition: transform .2s ease;
+}
+
+.cubik-services__link:hover span {
+  transform: translateX(4px);
+}
+
+/* Stats */
+
+.cubik-stats {
+  position: absolute;
+  left: clamp(22px, 5vw, 80px);
+  right: clamp(22px, 5vw, 80px);
+  bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 30;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 17px;
+}
+
+.cubik-stats > div {
+  padding: 0 24px;
+  border-right: 1px solid rgba(255,255,255,.13);
+}
+
+.cubik-stats > div:first-child {
+  padding-left: 0;
+}
+
+.cubik-stats > div:last-child {
+  border-right: 0;
+}
+
+.cubik-stats strong {
+  display: block;
+  color: #c9a45c;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.cubik-stats span {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255,255,255,.48);
+  font-size: 9px;
+  letter-spacing: .05em;
+}
+
+/* Scroll */
+
+.cubik-scroll {
+  position: absolute;
+  right: 26px;
+  bottom: 32px;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cubik-scroll__mouse {
+  width: 22px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 15px;
+}
+
+.cubik-scroll__mouse span {
+  width: 3px;
+  height: 7px;
+  border-radius: 5px;
+  background: #c9a45c;
+  animation: cubikScroll 1.7s infinite;
+}
+
+@keyframes cubikScroll {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(13px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.cubik-scroll small {
+  writing-mode: vertical-rl;
+  color: rgba(255,255,255,.38);
+  font-size: 7px;
+  letter-spacing: .20em;
+}
+
+/* Tablet */
+
+@media (max-width: 1150px) {
+  .cubik-nav {
+    display: none;
+  }
+
+  .cubik-menu {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .cubik-menu span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: #fff;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  .cubik-menu.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .cubik-menu.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .cubik-menu.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .cubik-mobile-nav {
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 24px 24px;
+    background: rgba(5, 24, 29, .97);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    transform: translateY(-120%);
+    transition: transform .3s ease;
+    z-index: 45;
+  }
+
+  .cubik-mobile-nav.is-open {
+    transform: translateY(0);
+  }
+
+  .cubik-mobile-nav a {
+    padding: 13px 0;
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .cubik-consult {
+    margin-left: auto;
+  }
+
+  .cubik-hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 125px;
+  }
+
+  .cubik-hero__copy {
+    margin: 0 auto;
+  }
+
+  .cubik-eyebrow,
+  .cubik-actions,
+  .cubik-trust {
+    justify-content: center;
+  }
+
+  .cubik-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cubik-house-area {
+    position: absolute;
+    right: 5%;
+    bottom: 9%;
+    width: 64vw;
+    height: 55vh;
+    opacity: .50;
+    pointer-events: none;
+  }
+
+  .cubik-services {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .cubik-hero {
+    height: 170vh;
+    min-height: 760px;
+  }
+
+  .cubik-hero__nav {
+    height: 70px;
+    padding: 0 18px;
+  }
+
+  .cubik-logo__main {
+    font-size: 16px;
+  }
+
+  .cubik-logo__accent {
+    font-size: 8px;
+  }
+
+  .cubik-consult {
+    display: none;
+  }
+
+  .cubik-mobile-nav {
+    top: 70px;
+  }
+
+  .cubik-hero__content {
+    min-height: 700px;
+    padding: 105px 20px 170px;
+  }
+
+  .cubik-eyebrow {
+    margin-bottom: 18px;
+    font-size: 8px;
+    letter-spacing: .17em;
+  }
+
+  .cubik-eyebrow span {
+    width: 18px;
+  }
+
+  .cubik-hero__copy h1 {
+    font-size: clamp(48px, 14vw, 68px);
+  }
+
+  .cubik-description {
+    max-width: 360px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .cubik-actions {
+    margin-top: 25px;
+    gap: 15px;
+  }
+
+  .cubik-primary {
+    font-size: 11px;
+    padding-left: 16px;
+  }
+
+  .cubik-primary b {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cubik-story {
+    display: none;
+  }
+
+  .cubik-trust {
+    margin-top: 24px;
+    font-size: 7px;
+  }
+
+  .cubik-house-area {
+    width: 100vw;
+    height: 330px;
+    right: 0;
+    bottom: 19%;
+    opacity: .42;
+  }
+
+  .cubik-house {
+    width: 88vw;
+  }
+
+  .cubik-orbit {
+    width: 88vw;
+    height: 230px;
+  }
+
+  .cubik-stats {
+    left: 20px;
+    right: 20px;
+    bottom: 17px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px 0;
+  }
+
+  .cubik-stats > div {
+    padding: 0 10px;
+    border-right: 0;
+  }
+
+  .cubik-stats > div:first-child {
+    padding-left: 0;
+  }
+
+  .cubik-stats strong {
+    font-size: 20px;
+  }
+
+  .cubik-stats span {
+    font-size: 7px;
+  }
+
+  .cubik-scroll {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .cubik-house img,
+  .cubik-scroll__mouse span {
+    animation: none;
+  }
+
+  .cubik-house {
+    transition: none;
+  }
+}
+.cubik-hero {
+  --gold: #c9a46a;
+  --white: #f7f5ef;
+  --line: rgba(255,255,255,.20);
+  position: relative;
+   min-height: 78vh;
+  height: 78vh;
+  max-height: 760px;
+  overflow: hidden;
+  background: #080909;
+  color: var(--white);
+  isolation: isolate;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (max-width: 768px) {
+  .cubik-hero {
+    min-height: 720px;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.cubik-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image: url("/images/hero-bedroom.jpg");
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.025);
+  animation: cubikHeroZoom 14s ease-out both;
+}
+
+.cubik-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.82) 28%, rgba(0,0,0,.18) 67%, rgba(0,0,0,.44) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.60) 0%, rgba(0,0,0,.04) 30%, rgba(0,0,0,.68) 100%);
+}
+
+.cubik-hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.cubik-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 76px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  transition: background .3s ease, backdrop-filter .3s ease;
+}
+
+.cubik-nav.is-scrolled {
+  position: fixed;
+  background: rgba(7,9,9,.78);
+  backdrop-filter: blur(16px);
+}
+
+.cubik-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .10em;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.cubik-logo strong { font-weight: 800; }
+
+.cubik-logo__mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(201,164,106,.75);
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.cubik-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.cubik-nav__links a {
+  color: rgba(255,255,255,.88);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.cubik-nav__links a:hover { color: var(--gold); }
+
+.cubik-nav__cta {
+  color: #161616 !important;
+  background: #f4f2ed;
+  padding: 12px 21px;
+  border-radius: 10px;
+}
+
+.cubik-nav__cta:hover { color: #161616 !important; opacity: .88; }
+
+.cubik-hero__content {
+  position: relative;
+  z-index: 5;
+  min-height: 100svh;
+  padding: 150px 30px 145px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.cubik-hero__copy { max-width: 720px; }
+
+.cubik-eyebrow {
+  margin: 0 0 25px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .20em;
+  animation: cubikUp .8s .05s both;
+}
+
+.cubik-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(58px, 7.2vw, 112px);
+  line-height: .88;
+  font-weight: 400;
+  letter-spacing: -.065em;
+  animation: cubikUp .9s .15s both;
+}
+
+.cubik-hero h1 span { color: rgba(255,255,255,.72); }
+
+.cubik-description {
+  max-width: 560px;
+  margin: 30px 0 0;
+  color: rgba(255,255,255,.75);
+  font-size: 17px;
+  line-height: 1.7;
+  animation: cubikUp .9s .25s both;
+}
+
+.cubik-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  animation: cubikUp .9s .35s both;
+}
+
+.cubik-btn {
+  min-height: 52px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.cubik-btn:hover { transform: translateY(-3px); }
+.cubik-btn--light { background: #f5f3ee; color: #161616; }
+.cubik-btn--dark { background: rgba(20,20,22,.75); color: #fff; border: 1px solid rgba(255,255,255,.12); }
+.cubik-btn span { font-size: 18px; }
+
+.cubik-hero__side {
+  width: 245px;
+  margin-top: 130px;
+  animation: cubikFade 1s .5s both;
+}
+
+.cubik-side-line {
+  width: 55px;
+  height: 1px;
+  margin-bottom: 28px;
+  background: var(--gold);
+}
+
+.cubik-hero__side p {
+  margin: 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+  color: rgba(255,255,255,.76);
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+.cubik-hero__bottom {
+  position: absolute;
+  z-index: 8;
+  left: 30px;
+  right: 30px;
+  bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 42px;
+}
+
+.cubik-hero__bottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cubik-hero__bottom strong {
+  color: #fff;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.cubik-hero__bottom span {
+  color: rgba(255,255,255,.55);
+  font-size: 10px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.cubik-scroll {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.cubik-scroll i {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: var(--gold);
+  font-style: normal;
+  animation: cubikBounce 1.8s infinite;
+}
+
+.cubik-menu { display: none; }
+
+@keyframes cubikHeroZoom {
+  from { transform: scale(1.09); }
+  to { transform: scale(1.025); }
+}
+@keyframes cubikUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cubikFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cubikBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+@media (max-width: 900px) {
+  .cubik-nav { padding: 0 20px; }
+  .cubik-menu {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+    background: rgba(0,0,0,.25);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .cubik-menu span { width: 16px; height: 1px; background: #fff; transition: .25s; }
+  .cubik-menu.is-open span:first-child { transform: translateY(3px) rotate(45deg); }
+  .cubik-menu.is-open span:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+  .cubik-nav__links {
+    position: absolute;
+    top: 76px;
+    left: 15px;
+    right: 15px;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(8,9,9,.96);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+  }
+  .cubik-nav__links.is-open { display: flex; }
+  .cubik-nav__links a { padding: 15px 5px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .cubik-nav__cta { margin-top: 12px; text-align: center; border-bottom: 0 !important; }
+
+  .cubik-hero__content { padding: 130px 20px 160px; align-items: flex-end; }
+  .cubik-hero__side { display: none; }
+  .cubik-hero h1 { font-size: clamp(52px, 13vw, 86px); }
+  .cubik-description { font-size: 15px; max-width: 480px; }
+  .cubik-hero__bottom { left: 20px; right: 20px; gap: 20px; }
+  .cubik-hero__bottom > div:nth-child(3) { display: none; }
+}
+
+@media (max-width: 560px) {
+  .cubik-logo { font-size: 11px; letter-spacing: .07em; }
+  .cubik-logo__mark { width: 30px; height: 30px; }
+  .cubik-hero__image { background-position: 65% center; }
+  .cubik-hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.62) 65%, rgba(0,0,0,.35) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.70));
+  }
+  .cubik-hero__content { padding-top: 125px; padding-bottom: 170px; }
+  .cubik-eyebrow { font-size: 9px; letter-spacing: .14em; }
+  .cubik-hero h1 { font-size: clamp(49px, 15vw, 72px); line-height: .9; }
+  .cubik-description { margin-top: 22px; line-height: 1.55; }
+  .cubik-actions { flex-direction: column; align-items: stretch; }
+  .cubik-btn { justify-content: space-between; }
+  .cubik-hero__bottom { bottom: 18px; }
+  .cubik-hero__bottom > div:nth-child(2) { display: none; }
+  .cubik-scroll { margin-left: 0; }
+  .cubik-scroll span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cubik-hero__image, .cubik-eyebrow, .cubik-hero h1, .cubik-description, .cubik-actions, .cubik-hero__side { animation: none; }
+  .cubik-scroll i { animation: none; }
+}
+
+/* =========================================================
+   THE CUBIK SPACES — PROFESSIONAL HERO
+========================================================= */
+
+.cubik-hero {
+  position: relative;
+  height: 190vh;
+  min-height: 820px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #071f25;
+  color: #fff;
+}
+
+.cubik-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 63% 43%, rgba(185, 141, 74, .18), transparent 24%),
+    radial-gradient(circle at 12% 80%, rgba(29, 79, 89, .72), transparent 36%),
+    linear-gradient(125deg, #04161b 0%, #0a2b33 48%, #06171c 100%);
+}
+
+.cubik-hero__background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 20, 25, .18), transparent 45%, rgba(4, 20, 25, .16)),
+    linear-gradient(180deg, rgba(0,0,0,.12), transparent 30%, rgba(0,0,0,.28));
+}
+
+.cubik-hero__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(85px);
+  z-index: -2;
+}
+
+.cubik-hero__glow--one {
+  width: 360px;
+  height: 360px;
+  top: 20%;
+  right: 22%;
+  background: rgba(185, 141, 74, .10);
+}
+
+.cubik-hero__glow--two {
+  width: 330px;
+  height: 330px;
+  left: -130px;
+  bottom: 8%;
+  background: rgba(22, 65, 77, .55);
+}
+
+/* Navigation */
+
+.cubik-hero__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 82px;
+  padding: 0 clamp(22px, 5vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.cubik-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cubik-logo__main {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+
+.cubik-logo__accent {
+  color: #c9a45c;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .20em;
+}
+
+.cubik-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.7vw, 34px);
+}
+
+.cubik-nav a {
+  position: relative;
+  color: rgba(255,255,255,.76);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .25s ease;
+}
+
+.cubik-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: #c9a45c;
+  transition: right .25s ease;
+}
+
+.cubik-nav a:hover,
+.cubik-nav a.is-active {
+  color: #fff;
+}
+
+.cubik-nav a:hover::after,
+.cubik-nav a.is-active::after {
+  right: 0;
+}
+
+.cubik-consult {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 8px 7px 18px;
+  border: 1px solid rgba(201,164,92,.72);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+
+.cubik-consult b {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #c9a45c;
+  color: #10272d;
+  font-size: 16px;
+}
+
+.cubik-consult:hover {
+  background: #c9a45c;
+  color: #10272d;
+  transform: translateY(-2px);
+}
+
+.cubik-menu,
+.cubik-mobile-nav {
+  display: none;
+}
+
+/* Main */
+
+.cubik-hero__content {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 720px;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 100px clamp(22px, 5vw, 80px) 150px;
+  display: grid;
+  grid-template-columns: minmax(290px, .82fr) minmax(430px, 1.55fr) minmax(250px, .65fr);
+  align-items: center;
+  gap: clamp(10px, 2vw, 30px);
+  z-index: 10;
+}
+
+.cubik-hero__copy {
+  position: relative;
+  z-index: 20;
+  max-width: 540px;
+}
+
+.cubik-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 24px;
+  color: #c9a45c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .24em;
+}
+
+.cubik-eyebrow span {
+  width: 26px;
+  height: 1px;
+  background: #c9a45c;
+}
+
+.cubik-hero__copy h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 6vw, 92px);
+  line-height: .93;
+  letter-spacing: -.055em;
+  font-weight: 400;
+}
+
+.cubik-hero__copy h1 em {
+  color: #c9a45c;
+  font-style: normal;
+}
+
+.cubik-description {
+  max-width: 450px;
+  margin: 28px 0 0;
+  color: rgba(255,255,255,.68);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.cubik-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 34px;
+}
+
+.cubik-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 7px 8px 7px 21px;
+  border-radius: 999px;
+  background: #c9a45c;
+  color: #10272d;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cubik-primary b {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #10272d;
+  color: #fff;
+  font-size: 18px;
+}
+
+.cubik-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(0,0,0,.25);
+}
+
+.cubik-story {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,.86);
+  text-decoration: none;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.cubik-story small {
+  display: block;
+  margin-bottom: 3px;
+  color: #c9a45c;
+  font-size: 8px;
+  letter-spacing: .15em;
+}
+
+.cubik-play {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 50%;
+  color: #c9a45c;
+  transition: .25s ease;
+}
+
+.cubik-story:hover .cubik-play {
+  background: #c9a45c;
+  color: #10272d;
+  transform: scale(1.07);
+}
+
+.cubik-trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 38px;
+  color: rgba(255,255,255,.38);
+  font-size: 8px;
+  letter-spacing: .18em;
+}
+
+.cubik-trust__line {
+  width: 35px;
+  height: 1px;
+  background: rgba(201,164,92,.65);
+}
+
+/* House */
+
+.cubik-house-area {
+  position: relative;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  z-index: 15;
+}
+
+.cubik-house {
+  position: relative;
+  width: min(700px, 47vw);
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: transform .08s linear;
+}
+
+.cubik-house img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  filter: drop-shadow(0 38px 42px rgba(0,0,0,.40));
+  animation: cubikHouseFloat 5.5s ease-in-out infinite;
+}
+
+@keyframes cubikHouseFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.cubik-house__shadow {
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: 8%;
+  height: 75px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.40);
+  filter: blur(32px);
+  z-index: -1;
+}
+
+.cubik-orbit {
+  position: absolute;
+  width: min(620px, 42vw);
+  height: 360px;
+  border: 1px solid rgba(201,164,92,.24);
+  border-radius: 50%;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+.cubik-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 28px 70px;
+  border: 1px solid rgba(255,255,255,.045);
+  border-radius: 50%;
+}
+
+.cubik-orbit span {
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c9a45c;
+  box-shadow: 0 0 22px rgba(201,164,92,.85);
+}
+
+/* Services */
+
+.cubik-services {
+  position: relative;
+  z-index: 20;
+}
+
+.cubik-services__label {
+  margin: 0 0 20px;
+  color: rgba(255,255,255,.38);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .20em;
+}
+
+.cubik-service {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 17px 0;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.cubik-service > span {
+  color: #c9a45c;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cubik-service strong {
+  display: block;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cubik-service small {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255,255,255,.45);
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.cubik-services__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #c9a45c;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.cubik-services__link span {
+  transition: transform .2s ease;
+}
+
+.cubik-services__link:hover span {
+  transform: translateX(4px);
+}
+
+/* Stats */
+
+.cubik-stats {
+  position: absolute;
+  left: clamp(22px, 5vw, 80px);
+  right: clamp(22px, 5vw, 80px);
+  bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  z-index: 30;
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 17px;
+}
+
+.cubik-stats > div {
+  padding: 0 24px;
+  border-right: 1px solid rgba(255,255,255,.13);
+}
+
+.cubik-stats > div:first-child {
+  padding-left: 0;
+}
+
+.cubik-stats > div:last-child {
+  border-right: 0;
+}
+
+.cubik-stats strong {
+  display: block;
+  color: #c9a45c;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.cubik-stats span {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255,255,255,.48);
+  font-size: 9px;
+  letter-spacing: .05em;
+}
+
+/* Scroll */
+
+.cubik-scroll {
+  position: absolute;
+  right: 26px;
+  bottom: 32px;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cubik-scroll__mouse {
+  width: 22px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 15px;
+}
+
+.cubik-scroll__mouse span {
+  width: 3px;
+  height: 7px;
+  border-radius: 5px;
+  background: #c9a45c;
+  animation: cubikScroll 1.7s infinite;
+}
+
+@keyframes cubikScroll {
+  0% { transform: translateY(0); opacity: 1; }
+  70% { transform: translateY(13px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+.cubik-scroll small {
+  writing-mode: vertical-rl;
+  color: rgba(255,255,255,.38);
+  font-size: 7px;
+  letter-spacing: .20em;
+}
+
+/* Tablet */
+
+@media (max-width: 1150px) {
+  .cubik-nav {
+    display: none;
+  }
+
+  .cubik-menu {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .cubik-menu span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background: #fff;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+
+  .cubik-menu.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .cubik-menu.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .cubik-menu.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .cubik-mobile-nav {
+    position: absolute;
+    top: 82px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 24px 24px;
+    background: rgba(5, 24, 29, .97);
+    border-bottom: 1px solid rgba(255,255,255,.10);
+    transform: translateY(-120%);
+    transition: transform .3s ease;
+    z-index: 45;
+  }
+
+  .cubik-mobile-nav.is-open {
+    transform: translateY(0);
+  }
+
+  .cubik-mobile-nav a {
+    padding: 13px 0;
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .cubik-consult {
+    margin-left: auto;
+  }
+
+  .cubik-hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 125px;
+  }
+
+  .cubik-hero__copy {
+    margin: 0 auto;
+  }
+
+  .cubik-eyebrow,
+  .cubik-actions,
+  .cubik-trust {
+    justify-content: center;
+  }
+
+  .cubik-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cubik-house-area {
+    position: absolute;
+    right: 5%;
+    bottom: 9%;
+    width: 64vw;
+    height: 55vh;
+    opacity: .50;
+    pointer-events: none;
+  }
+
+  .cubik-services {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .cubik-hero {
+    height: 170vh;
+    min-height: 760px;
+  }
+
+  .cubik-hero__nav {
+    height: 70px;
+    padding: 0 18px;
+  }
+
+  .cubik-logo__main {
+    font-size: 16px;
+  }
+
+  .cubik-logo__accent {
+    font-size: 8px;
+  }
+
+  .cubik-consult {
+    display: none;
+  }
+
+  .cubik-mobile-nav {
+    top: 70px;
+  }
+
+  .cubik-hero__content {
+    min-height: 700px;
+    padding: 105px 20px 170px;
+  }
+
+  .cubik-eyebrow {
+    margin-bottom: 18px;
+    font-size: 8px;
+    letter-spacing: .17em;
+  }
+
+  .cubik-eyebrow span {
+    width: 18px;
+  }
+
+  .cubik-hero__copy h1 {
+    font-size: clamp(48px, 14vw, 68px);
+  }
+
+  .cubik-description {
+    max-width: 360px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .cubik-actions {
+    margin-top: 25px;
+    gap: 15px;
+  }
+
+  .cubik-primary {
+    font-size: 11px;
+    padding-left: 16px;
+  }
+
+  .cubik-primary b {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cubik-story {
+    display: none;
+  }
+
+  .cubik-trust {
+    margin-top: 24px;
+    font-size: 7px;
+  }
+
+  .cubik-house-area {
+    width: 100vw;
+    height: 330px;
+    right: 0;
+    bottom: 19%;
+    opacity: .42;
+  }
+
+  .cubik-house {
+    width: 88vw;
+  }
+
+  .cubik-orbit {
+    width: 88vw;
+    height: 230px;
+  }
+
+  .cubik-stats {
+    left: 20px;
+    right: 20px;
+    bottom: 17px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px 0;
+  }
+
+  .cubik-stats > div {
+    padding: 0 10px;
+    border-right: 0;
+  }
+
+  .cubik-stats > div:first-child {
+    padding-left: 0;
+  }
+
+  .cubik-stats strong {
+    font-size: 20px;
+  }
+
+  .cubik-stats span {
+    font-size: 7px;
+  }
+
+  .cubik-scroll {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .cubik-house img,
+  .cubik-scroll__mouse span {
+    animation: none;
+  }
+
+  .cubik-house {
+    transition: none;
+  }
+}
+.cubik-hero {
+  --gold: #c9a46a;
+  --white: #f7f5ef;
+  --line: rgba(255,255,255,.20);
+  position: relative;
+   min-height: 78vh;
+  height: 78vh;
+  max-height: 760px;
+  overflow: hidden;
+  background: #080909;
+  color: var(--white);
+  isolation: isolate;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (max-width: 768px) {
+  .cubik-hero {
+    min-height: 720px;
+    height: auto;
+    max-height: none;
+  }
+}
+
+.cubik-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-image: url("/images/hero-bedroom.jpg");
+  background-size: cover;
+  background-position: center center;
+  transform: scale(1.025);
+  animation: cubikHeroZoom 14s ease-out both;
+}
+
+.cubik-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.82) 28%, rgba(0,0,0,.18) 67%, rgba(0,0,0,.44) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.60) 0%, rgba(0,0,0,.04) 30%, rgba(0,0,0,.68) 100%);
+}
+
+.cubik-hero__grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.cubik-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: 76px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  transition: background .3s ease, backdrop-filter .3s ease;
+}
+
+.cubik-nav.is-scrolled {
+  position: fixed;
+  background: rgba(7,9,9,.78);
+  backdrop-filter: blur(16px);
+}
+
+.cubik-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .10em;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.cubik-logo strong { font-weight: 800; }
+
+.cubik-logo__mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(201,164,106,.75);
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-size: 21px;
+}
+
+.cubik-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.cubik-nav__links a {
+  color: rgba(255,255,255,.88);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.cubik-nav__links a:hover { color: var(--gold); }
+
+.cubik-nav__cta {
+  color: #161616 !important;
+  background: #f4f2ed;
+  padding: 12px 21px;
+  border-radius: 10px;
+}
+
+.cubik-nav__cta:hover { color: #161616 !important; opacity: .88; }
+
+.cubik-hero__content {
+  position: relative;
+  z-index: 5;
+  min-height: 100svh;
+  padding: 150px 30px 145px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.cubik-hero__copy { max-width: 720px; }
+
+.cubik-eyebrow {
+  margin: 0 0 25px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .20em;
+  animation: cubikUp .8s .05s both;
+}
+
+.cubik-hero h1 {
+  margin: 0;
+  max-width: 760px;
+  font-size: clamp(58px, 7.2vw, 112px);
+  line-height: .88;
+  font-weight: 400;
+  letter-spacing: -.065em;
+  animation: cubikUp .9s .15s both;
+}
+
+.cubik-hero h1 span { color: rgba(255,255,255,.72); }
+
+.cubik-description {
+  max-width: 560px;
+  margin: 30px 0 0;
+  color: rgba(255,255,255,.75);
+  font-size: 17px;
+  line-height: 1.7;
+  animation: cubikUp .9s .25s both;
+}
+
+.cubik-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 34px;
+  animation: cubikUp .9s .35s both;
+}
+
+.cubik-btn {
+  min-height: 52px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform .25s ease, background .25s ease;
+}
+
+.cubik-btn:hover { transform: translateY(-3px); }
+.cubik-btn--light { background: #f5f3ee; color: #161616; }
+.cubik-btn--dark { background: rgba(20,20,22,.75); color: #fff; border: 1px solid rgba(255,255,255,.12); }
+.cubik-btn span { font-size: 18px; }
+
+.cubik-hero__side {
+  width: 245px;
+  margin-top: 130px;
+  animation: cubikFade 1s .5s both;
+}
+
+.cubik-side-line {
+  width: 55px;
+  height: 1px;
+  margin-bottom: 28px;
+  background: var(--gold);
+}
+
+.cubik-hero__side p {
+  margin: 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+  color: rgba(255,255,255,.76);
+  font-size: 10px;
+  letter-spacing: .14em;
+}
+
+.cubik-hero__bottom {
+  position: absolute;
+  z-index: 8;
+  left: 30px;
+  right: 30px;
+  bottom: 24px;
+  display: flex;
+  align-items: flex-end;
+  gap: 42px;
+}
+
+.cubik-hero__bottom > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cubik-hero__bottom strong {
+  color: #fff;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.cubik-hero__bottom span {
+  color: rgba(255,255,255,.55);
+  font-size: 10px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.cubik-scroll {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.cubik-scroll i {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+  color: var(--gold);
+  font-style: normal;
+  animation: cubikBounce 1.8s infinite;
+}
+
+.cubik-menu { display: none; }
+
+@keyframes cubikHeroZoom {
+  from { transform: scale(1.09); }
+  to { transform: scale(1.025); }
+}
+@keyframes cubikUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes cubikFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes cubikBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+
+@media (max-width: 900px) {
+  .cubik-nav { padding: 0 20px; }
+  .cubik-menu {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 50%;
+    background: rgba(0,0,0,.25);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .cubik-menu span { width: 16px; height: 1px; background: #fff; transition: .25s; }
+  .cubik-menu.is-open span:first-child { transform: translateY(3px) rotate(45deg); }
+  .cubik-menu.is-open span:last-child { transform: translateY(-3px) rotate(-45deg); }
+
+  .cubik-nav__links {
+    position: absolute;
+    top: 76px;
+    left: 15px;
+    right: 15px;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(8,9,9,.96);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 14px;
+  }
+  .cubik-nav__links.is-open { display: flex; }
+  .cubik-nav__links a { padding: 15px 5px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .cubik-nav__cta { margin-top: 12px; text-align: center; border-bottom: 0 !important; }
+
+  .cubik-hero__content { padding: 130px 20px 160px; align-items: flex-end; }
+  .cubik-hero__side { display: none; }
+  .cubik-hero h1 { font-size: clamp(52px, 13vw, 86px); }
+  .cubik-description { font-size: 15px; max-width: 480px; }
+  .cubik-hero__bottom { left: 20px; right: 20px; gap: 20px; }
+  .cubik-hero__bottom > div:nth-child(3) { display: none; }
+}
+
+@media (max-width: 560px) {
+  .cubik-logo { font-size: 11px; letter-spacing: .07em; }
+  .cubik-logo__mark { width: 30px; height: 30px; }
+  .cubik-hero__image { background-position: 65% center; }
+  .cubik-hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.62) 65%, rgba(0,0,0,.35) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.70));
+  }
+  .cubik-hero__content { padding-top: 125px; padding-bottom: 170px; }
+  .cubik-eyebrow { font-size: 9px; letter-spacing: .14em; }
+  .cubik-hero h1 { font-size: clamp(49px, 15vw, 72px); line-height: .9; }
+  .cubik-description { margin-top: 22px; line-height: 1.55; }
+  .cubik-actions { flex-direction: column; align-items: stretch; }
+  .cubik-btn { justify-content: space-between; }
+  .cubik-hero__bottom { bottom: 18px; }
+  .cubik-hero__bottom > div:nth-child(2) { display: none; }
+  .cubik-scroll { margin-left: 0; }
+  .cubik-scroll span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cubik-hero__image, .cubik-eyebrow, .cubik-hero h1, .cubik-description, .cubik-actions, .cubik-hero__side { animation: none; }
+  .cubik-scroll i { animation: none; }
+}
+
