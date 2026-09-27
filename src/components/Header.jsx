@@ -1,178 +1,75 @@
 import { useEffect, useState } from "react";
-import { IMAGES } from "../data.js";
-import "./Hero.css";
+import { BRAND, NAV, PILLS } from "../data.js";
 
-const services = [
-  { no: "01", title: "Home Interiors", text: "Complete spaces, designed as one story." },
-  { no: "02", title: "Modular Kitchens", text: "Smart storage with refined detailing." },
-  { no: "03", title: "Luxury Bedrooms", text: "Calm, warm and deeply personal." },
-];
-
-export default function Hero() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+export default function Header() {
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-      setScrollY(Math.min(window.scrollY, 500));
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+    document.body.style.overflow = open ? "hidden" : "";
+  }, [open]);
 
-  const imageStyle = {
-    transform: `scale(${1.02 + scrollY * 0.00012}) translate3d(0, ${scrollY * 0.045}px, 0)`,
-  };
+  const close = () => setOpen(false);
 
   return (
-    <section className={`cubik-hero-v3 ${scrolled ? "is-scrolled" : ""}`}>
-      <div className="cubik-hero-v3__media" aria-hidden="true">
-        <img
-          src={IMAGES.hero}
-          alt=""
-          style={imageStyle}
-        />
-      </div>
-
-      <div className="cubik-hero-v3__veil" aria-hidden="true" />
-      <div className="cubik-hero-v3__grain" aria-hidden="true" />
-      <div className="cubik-hero-v3__grid" aria-hidden="true" />
-
-      <nav className="cubik-hero-v3__nav">
-        <a className="cubik-hero-v3__brand" href="/" onClick={() => setMenuOpen(false)}>
-          <span>THE CUBIK</span>
-          <em>SPACES</em>
+    <header className="header">
+      <div className="container header__bar">
+        <a href="#top" className="logo" aria-label={`${BRAND.name} home`}>
+          <strong>{BRAND.name}</strong>
+          {BRAND.suffix}
         </a>
 
-        <div className="cubik-hero-v3__links">
+        <nav className="header__links" aria-label="Primary">
+          
           <a href="#services">Services</a>
-          <a href="#feature">About us</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
+          <a href="#process">How it works</a>
+          <a href="#portfolio">Portfolio</a>
+        </nav>
+
+        <div className="header__actions">
+          <a href="#contact" className="btn btn--small">Get a quote</a>
+          <button
+            className="menu-btn"
+            aria-expanded={open}
+            aria-controls="menu-panel"
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? "Close" : "Menu"}
+          </button>
         </div>
-
-        <a className="cubik-hero-v3__nav-cta" href="#contact">
-          Get in touch <span>↗</span>
-        </a>
-
-        <button
-          className={`cubik-hero-v3__menu-button ${menuOpen ? "open" : ""}`}
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((value) => !value)}
-        >
-          <span />
-          <span />
-        </button>
-      </nav>
-
-      <div className={`cubik-hero-v3__mobile-menu ${menuOpen ? "show" : ""}`}>
-        <a href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-        <a href="#feature" onClick={() => setMenuOpen(false)}>About us</a>
-        <a href="#portfolio" onClick={() => setMenuOpen(false)}>Projects</a>
-        <a href="#process" onClick={() => setMenuOpen(false)}>Process</a>
-        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
-        <a className="mobile-cta" href="#contact" onClick={() => setMenuOpen(false)}>
-          Book a consultation ↗
-        </a>
       </div>
 
-      <div className="cubik-hero-v3__body">
-        <div className="cubik-hero-v3__left">
-          <div className="cubik-hero-v3__eyebrow">
-            <span className="dot" />
-            INTERIOR DESIGN STUDIO · HYDERABAD
-          </div>
-
-          <h1>
-            Interiors
-            <span>for living.</span>
-          </h1>
-
-          <p className="cubik-hero-v3__intro">
-            We create warm, modern interiors that feel considered,
-            functional and unmistakably yours.
-          </p>
-
-          <div className="cubik-hero-v3__actions">
-            <a className="primary" href="#contact">
-              Start your project
-              <span>↗</span>
-            </a>
-            <a className="secondary" href="#portfolio">
-              Explore our work
-              <span>→</span>
-            </a>
-          </div>
-
-          <div className="cubik-hero-v3__trust">
-            <span>DESIGN</span>
-            <i />
-            <span>EXECUTION</span>
-            <i />
-            <span>HANDOVER</span>
-          </div>
-        </div>
-
-        <aside className="cubik-hero-v3__right">
-          <div className="cubik-hero-v3__right-label">OUR SPACES</div>
-
-          {services.map((service) => (
-            <a
-              className="cubik-hero-v3__service"
-              href="#services"
-              key={service.no}
-            >
-              <span className="number">{service.no}</span>
-              <div className="service-copy">
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </div>
-              <span className="arrow">↗</span>
-            </a>
+      {/* <div className="pills">
+        <div className="container pills__row">
+          {PILLS.map((p) => (
+            <a key={p} href="#portfolio" className="pill">{p}</a>
           ))}
+        </div>
+      </div> */}
 
-          <div className="cubik-hero-v3__side-note">
-            <span>THE CUBIK SPACES</span>
-            <strong>Designing better<br />everyday living.</strong>
-          </div>
-        </aside>
-      </div>
-
-      <div className="cubik-hero-v3__bottom">
-        <div className="cubik-hero-v3__stats">
-          <div>
-            <strong>250<span>+</span></strong>
-            <small>Projects completed</small>
-          </div>
-          <div>
-            <strong>100<span>+</span></strong>
-            <small>Homes transformed</small>
-          </div>
-          <div>
-            <strong>10<span>+</span></strong>
-            <small>Years experience</small>
+      {open && (
+        <div id="menu-panel" className="menu" role="dialog" aria-label="Site menu">
+          <div className="container menu__grid">
+            <div>
+              <h3>Residential</h3>
+              <ul>{NAV.spaces.map((l) => <li key={l.label}><a href={l.href} onClick={close}>{l.label}</a></li>)}</ul>
+            </div>
+            <div>
+              <h3>Commercial</h3>
+              <ul>{NAV.commercial.map((l) => <li key={l.label}><a href={l.href} onClick={close}>{l.label}</a></li>)}</ul>
+            </div>
+            <div>
+              <h3>Learn more</h3>
+              <ul>{NAV.learn.map((l) => <li key={l.label}><a href={l.href} onClick={close}>{l.label}</a></li>)}</ul>
+            </div>
           </div>
         </div>
-
-        <a className="cubik-hero-v3__scroll" href="#services">
-          <span>SCROLL TO EXPLORE</span>
-          <b>↓</b>
-        </a>
-      </div>
-    </section>
+      )}
+    </header>
   );
 }
