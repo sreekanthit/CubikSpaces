@@ -10,6 +10,7 @@ import Portfolio from "./components/Portfolio.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import Stats from "./components/Stats";
+import SpacePlanner from "./components/SpacePlanner.jsx";
 
 export default function App() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -28,9 +29,11 @@ export default function App() {
         <Hero />
         <Services />
         <Feature />
+        <SpacePlanner/>
         <Process />
         <Portfolio />
         <Contact />
+        
         <Stats />
       </main>
 

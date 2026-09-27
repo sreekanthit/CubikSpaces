@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { createTimeline, stagger } from "animejs";
+import { useEffect, useRef, useState } from "react";
+import { animate, createTimeline, stagger } from "animejs";
 import "./Process.css";
 
 const STEPS = [
@@ -9,6 +9,8 @@ const STEPS = [
     title: "Understand your needs",
     description:
       "We learn about your lifestyle, design preferences, budget and project timeline.",
+    details:
+      "We begin with a focused discovery session to understand how you live, what you need from each space, your visual preferences, budget priorities and project schedule. This helps us align the design direction before any detailed planning begins.",
   },
   {
     number: "02",
@@ -16,6 +18,8 @@ const STEPS = [
     title: "Plan your space",
     description:
       "Our team develops a considered layout, material palette and detailed design.",
+    details:
+      "We translate the brief into layouts, mood direction, material selections, colour palettes and detailed design decisions. Every element is reviewed for function, flow, proportion and visual consistency before execution.",
   },
   {
     number: "03",
@@ -23,6 +27,8 @@ const STEPS = [
     title: "Bring it to life",
     description:
       "We coordinate production and installation with care at every stage.",
+    details:
+      "Once the design is approved, we coordinate production, materials, vendors, site work and installation. Our team tracks progress closely, resolves on-site details and maintains quality throughout the execution process.",
   },
   {
     number: "04",
@@ -30,11 +36,19 @@ const STEPS = [
     title: "Enjoy your home",
     description:
       "After a final quality check, we walk you through your completed space.",
+    details:
+      "We complete final finishing, styling and quality checks before handover. You receive a walkthrough of the finished space, along with relevant care guidance and post-completion support for a smooth transition into your new interior.",
   },
 ];
 
 export default function Process() {
   const sectionRef = useRef(null);
+
+  const [activeStep, setActiveStep] = useState(null);
+
+  /* ==================================================
+     SECTION INTRO ANIMATION
+  ================================================== */
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -55,14 +69,12 @@ export default function Process() {
           },
         });
 
-        // Section title
         timeline.add(title, {
           opacity: [0, 1],
           translateY: [45, 0],
           duration: 800,
         });
 
-        // Gold line
         timeline.add(
           line,
           {
@@ -73,7 +85,6 @@ export default function Process() {
           250
         );
 
-        // Steps one-by-one
         timeline.add(
           steps,
           {
@@ -112,6 +123,60 @@ export default function Process() {
     };
   }, []);
 
+  /* ==================================================
+     DETAILS REVEAL ANIMATION
+  ================================================== */
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section || activeStep === null) return;
+
+    const activeCard = section.querySelector(
+      `.process-step[data-step="${activeStep}"]`
+    );
+
+    if (!activeCard) return;
+
+    const detailsInner = activeCard.querySelector(
+      ".process-details-inner"
+    );
+
+    const detailsText = activeCard.querySelector(
+      ".process-details-text"
+    );
+
+    animate(detailsInner, {
+      opacity: [0, 1],
+      translateY: [16, 0],
+
+      duration: 520,
+
+      ease: "outExpo",
+    });
+
+    animate(detailsText, {
+      opacity: [0, 1],
+      translateY: [10, 0],
+
+      delay: 80,
+
+      duration: 520,
+
+      ease: "outExpo",
+    });
+  }, [activeStep]);
+
+  /* ==================================================
+     OPEN / CLOSE CARD
+  ================================================== */
+
+  const toggleStep = (index) => {
+    setActiveStep((current) =>
+      current === index ? null : index
+    );
+  };
+
   return (
     <section
       id="process"
@@ -120,7 +185,10 @@ export default function Process() {
     >
       <div className="container">
 
+        {/* ================= HEADING ================= */}
+
         <div className="process-heading">
+
           <span className="process-eyebrow">
             OUR PROCESS
           </span>
@@ -131,38 +199,92 @@ export default function Process() {
           </h2>
 
           <span className="process-line" />
+
         </div>
+
+        {/* ================= PROCESS CARDS ================= */}
 
         <div className="process-steps">
 
-          {STEPS.map((step) => (
-            <article
-              className="process-step"
-              key={step.number}
-            >
-              <div className="process-step-top">
-                <span className="process-number">
-                  {step.number}
-                </span>
+          {STEPS.map((step, index) => {
 
-                <span className="process-label">
-                  {step.label}
-                </span>
-              </div>
+            const isOpen = activeStep === index;
 
-              <div className="process-step-content">
-                <h3>{step.title}</h3>
+            return (
+              <article
+                className={`process-step ${
+                  isOpen ? "is-open" : ""
+                }`}
+                key={step.number}
+                data-step={index}
+              >
 
-                <p>
-                  {step.description}
-                </p>
-              </div>
+                {/* CARD TOP */}
 
-              <div className="process-arrow">
-                ↗
-              </div>
-            </article>
-          ))}
+                <div className="process-step-top">
+
+                  <span className="process-number">
+                    {step.number}
+                  </span>
+
+                  <span className="process-label">
+                    {step.label}
+                  </span>
+
+                </div>
+
+                {/* MAIN CONTENT */}
+
+                <div className="process-step-content">
+
+                  <h3>
+                    {step.title}
+                  </h3>
+
+                  <p>
+                    {step.description}
+                  </p>
+
+                </div>
+
+                {/* EXPANDED INFORMATION */}
+
+                <div
+                  className="process-details"
+                  aria-hidden={!isOpen}
+                >
+                  <div className="process-details-inner">
+
+                    <span className="process-details-label">
+                      {step.label} / DETAILS
+                    </span>
+
+                    <p className="process-details-text">
+                      {step.details}
+                    </p>
+
+                  </div>
+                </div>
+
+                {/* ARROW BUTTON */}
+
+                <button
+                  type="button"
+                  className="process-arrow"
+                  onClick={() => toggleStep(index)}
+                  aria-expanded={isOpen}
+                  aria-label={`${
+                    isOpen ? "Close" : "Open"
+                  } ${step.label} details`}
+                >
+                  <span aria-hidden="true">
+                    ↗
+                  </span>
+                </button>
+
+              </article>
+            );
+          })}
 
         </div>
 
