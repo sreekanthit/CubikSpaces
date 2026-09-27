@@ -9,6 +9,7 @@ import Process from "./components/Process.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import Stats from "./components/Stats";
 
 export default function App() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -30,6 +31,7 @@ export default function App() {
         <Process />
         <Portfolio />
         <Contact />
+        <Stats />
       </main>
 
       <Footer />
