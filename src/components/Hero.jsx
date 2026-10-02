@@ -32,6 +32,28 @@ export default function Hero() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+ 
+
+animate(".hero-title", {
+  translateY: [80, 0],
+  opacity: [0, 1],
+  duration: 1200,
+  ease: "outExpo",
+
+  onBegin: () => {
+    console.log("CubikSpaces Hero Animation Started");
+
+    document
+      .querySelector(".hero-section")
+      ?.classList.add("animation-started");
+  },
+
+  onComplete: () => {
+    document
+      .querySelector(".hero-section")
+      ?.classList.add("animation-complete");
+  }
+});
 
   const imageStyle = {
     transform: `scale(${1.02 + scrollY * 0.00012}) translate3d(0, ${scrollY * 0.045}px, 0)`,

@@ -2266,3 +2266,21 @@
   .cubik-scroll i { animation: none; }
 }
 
+.hero-section {
+  transition: background 1s ease;
+}
+
+.hero-section.animation-started {
+  background: #f3efe8;
+}
+
+.hero-cta {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.6s ease;
+}
+
+.hero-section.animation-complete .hero-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
